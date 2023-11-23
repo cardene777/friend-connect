@@ -5,7 +5,7 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 interface ShareKey {
-    function mint(address share, address to) external;
+    function mint(address shareSubject, address account, uint256 amount, bytes memory data) external;
 }
 
 contract FriendConnectShare is Ownable {
@@ -78,7 +78,7 @@ contract FriendConnectShare is Ownable {
         sharesBalance[sharesSubject][msg.sender] = sharesBalance[sharesSubject][msg.sender] + amount;
         sharesSupply[sharesSubject] = supply + amount;
 
-        shareKeyContract.mint(sharesSubject, msg.sender);
+        shareKeyContract.mint(sharesSubject, msg.sender, amount, "");
 
         emit Trade(msg.sender, sharesSubject, true, amount, price, protocolFee, subjectFee, supply + amount);
         (bool success1, ) = protocolFeeDestination.call{value: protocolFee}("");
