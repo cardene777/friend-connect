@@ -4,6 +4,8 @@
 
 https://friend-connect.vercel.app/
 
+https://github.com/cardene777/friend-connect/assets/61857866/848ef714-7996-46e5-8f70-a6fc05720547
+
 ## 機能一覧
 
 ### Create Wallet
