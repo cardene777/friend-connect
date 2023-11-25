@@ -1,5 +1,7 @@
 # Friend-Connect
 
+Freind Tech fork on Blast using NFT as a Key
+
 ## Product
 
 https://friend-connect.vercel.app/
