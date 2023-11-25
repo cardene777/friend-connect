@@ -70,7 +70,7 @@ contract FriendConnectShare is Ownable {
 
     function buyShares(address sharesSubject, uint256 amount) public payable {
         uint256 supply = sharesSupply[sharesSubject];
-        require(supply > 0 || sharesSubject == msg.sender, "Only the shares' subject can buy the first share");
+        // require(supply > 0 || sharesSubject == msg.sender, "Only the shares' subject can buy the first share");
         uint256 price = getPrice(supply, amount);
         uint256 protocolFee = price * protocolFeePercent / 1 ether;
         uint256 subjectFee = price * subjectFeePercent / 1 ether;
@@ -78,7 +78,7 @@ contract FriendConnectShare is Ownable {
         sharesBalance[sharesSubject][msg.sender] = sharesBalance[sharesSubject][msg.sender] + amount;
         sharesSupply[sharesSubject] = supply + amount;
 
-        shareKeyContract.mint(sharesSubject, msg.sender, amount, "");
+        // shareKeyContract.mint(sharesSubject, msg.sender, amount, "");
 
         emit Trade(msg.sender, sharesSubject, true, amount, price, protocolFee, subjectFee, supply + amount);
         (bool success1, ) = protocolFeeDestination.call{value: protocolFee}("");
@@ -91,13 +91,13 @@ contract FriendConnectShare is Ownable {
         uint256 price = getPrice(supply - amount, amount);
         uint256 protocolFee = price * protocolFeePercent / 1 ether;
         uint256 subjectFee = price * subjectFeePercent / 1 ether;
-        require(sharesBalance[sharesSubject][msg.sender] >= amount, "Insufficient shares");
+        // require(sharesBalance[sharesSubject][msg.sender] >= amount, "Insufficient shares");
         sharesBalance[sharesSubject][msg.sender] = sharesBalance[sharesSubject][msg.sender] - amount;
         sharesSupply[sharesSubject] = supply - amount;
         emit Trade(msg.sender, sharesSubject, false, amount, price, protocolFee, subjectFee, supply - amount);
         (bool success1, ) = msg.sender.call{value: price - protocolFee - subjectFee}("");
         (bool success2, ) = protocolFeeDestination.call{value: protocolFee}("");
         (bool success3, ) = sharesSubject.call{value: subjectFee}("");
-        require(success1 && success2 && success3, "Unable to send funds");
+        // require(success1 && success2 && success3, "Unable to send funds");
     }
 }

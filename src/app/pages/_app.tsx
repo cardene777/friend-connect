@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }),
       ]}
     >
-      {!["/chat", "/explore"].includes(currentPath) && <Header />}
+      {!["/chat", "/explore", "/user"].includes(currentPath) && <Header />}
       <Component {...pageProps} />
       {!["/chat"].includes(currentPath) && <Navbar />}
     </ThirdwebProvider>

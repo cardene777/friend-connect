@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
-contract ShareKey is ERC1155 {
+contract FriendConnectShareKey is ERC1155 {
     uint256 private _tokenIdCounter = 0;
 
     // tokenId => (key id => Holder)
@@ -15,7 +15,7 @@ contract ShareKey is ERC1155 {
     mapping(address => uint256) public sharesSubjectToTokenId;
 
     mapping(uint256 => address) public tokenIdTosharesSubject;
-    constructor(string memory _name, string memory _symbol) ERC1155("https://res.cloudinary.com/dplp5wtzk/raw/upload/v1700724148/metadata{id}.json") {
+    constructor() ERC1155("https://res.cloudinary.com/dplp5wtzk/raw/upload/v1700724148/metadata{id}.json") {
     }
 
     function mint(address shareSubject, address account, uint256 amount, bytes memory data)
