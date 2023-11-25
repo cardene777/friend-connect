@@ -4,7 +4,7 @@
 
 https://friend-connect.vercel.app/
 
-https://github.com/cardene777/friend-connect/assets/61857866/848ef714-7996-46e5-8f70-a6fc05720547
+https://github.com/cardene777/friend-connect/assets/61857866/3716d38b-c790-4d0d-8225-36e6f4af9dee
 
 ## 機能一覧
 
@@ -47,4 +47,5 @@ https://github.com/cardene777/friend-connect/assets/61857866/848ef714-7996-46e5-
 | Contract | Thirdweb |
 | CI/CD | Github |
 | Infura | Vercel |
+| 画像生成 | ChatGPT |
 | etc. | react-pwa |
