@@ -1,5 +1,3 @@
-import { useAddress, useContract, useOwnedNFTs } from "@thirdweb-dev/react";
-import { NFT_CONTRACT_ADDRESS } from "../consts/addresses";
 import Image from "next/image";
 import ChatList from "../components/ChatList";
 import { useState } from "react";
@@ -11,16 +9,6 @@ export default function Airdrop() {
     "Friends",
     "Global",
   ]);
-  const [activeTab, setActiveTab] = useState<number>(0);
-  const address = useAddress();
-
-  const { contract } = useContract(NFT_CONTRACT_ADDRESS);
-
-  const { data: ownedNFTs, isLoading: ownedNFTsLoading } = useOwnedNFTs(
-    contract,
-    address
-  );
-
   return (
     <div className="bg-[#fef6e4] h-screen">
       <div className="flex justify-between mx-3 items-center">

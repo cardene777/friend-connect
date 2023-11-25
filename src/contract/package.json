@@ -9,5 +9,8 @@
     "dotenv": "^16.3.1",
     "hardhat": "^2.19.1",
     "solc": "^0.8.23-fixed"
+  },
+  "dependencies": {
+    "@thirdweb-dev/contracts": "^3.10.3"
   }
 }

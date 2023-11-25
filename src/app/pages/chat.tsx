@@ -1,4 +1,3 @@
-// pages/chat.tsx
 import React, { useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -75,19 +74,19 @@ export default function Chat() {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <button className=" ">
+            <button type="button">
               <FontAwesomeIcon
                 icon={faShareNodes}
                 className="text-textColor text-xl p-2 rounded-full border-2 border-textColor"
               />
             </button>
-            <button className=" ">
+            <button type="button">
               <FontAwesomeIcon
                 icon={faBookmark}
                 className="text-textColor text-xl p-2 rounded-full border-2 border-textColor"
               />
             </button>
-            <button className=" ">
+            <button type="button">
               <FontAwesomeIcon
                 icon={faBell}
                 className="text-textColor text-xl p-2 rounded-full border-2 border-textColor"

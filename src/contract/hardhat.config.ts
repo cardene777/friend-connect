@@ -14,6 +14,10 @@ const config: HardhatUserConfig = {
       url: `https://sepolia.infura.io/v3/${INFURA_KEY}`,
       accounts: [`0x${PRIVATE_KEY}`],
     },
+    mumbai: {
+      url: `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
+      accounts: [`0x${PRIVATE_KEY}`],
+    },
   },
   solidity: {
     compilers: [

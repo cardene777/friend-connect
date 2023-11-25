@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface TabComponentProps {
   tabs: string[];
@@ -14,6 +15,13 @@ const ExploreComponent: React.FC<TabComponentProps> = ({ tabs }) => {
     "Jordan Tokenhill",
     "Skyler Bitmont",
   ]);
+
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+    // 特定のパスに遷移
+    router.push("/user");
+  };
 
   return (
     <div className="pb-52">
@@ -35,37 +43,44 @@ const ExploreComponent: React.FC<TabComponentProps> = ({ tabs }) => {
         {tabs.map((tab, index) => (
           <div key={index} className={`${activeTab === index ? "" : "hidden"}`}>
             {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((element, i) => (
-              <div
-                className="flex items-center justify-start p-4"
-                key={element}
+              <button
+                key={i}
+                type="button"
+                className="w-full"
+                onClick={handleButtonClick}
               >
-                <div className="flex items-center mr-4">
-                  <Image
-                    src={`/icon/${element}.png`}
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="rounded-full"
-                  />
-                </div>
-                <div className="justify-start">
-                  <div>
-                    <p className="font-semibold text-textColor">
-                      {userArray[index]}
-                    </p>
+                <div
+                  className="flex items-center justify-start p-4"
+                  key={element}
+                >
+                  <div className="flex items-center mr-4">
+                    <Image
+                      src={`/icon/${element}.png`}
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="rounded-full"
+                    />
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <p className="text-textColor font-semibold">
-                      <span className="font-bold text-textStrong">
-                        0.{element + 1}
-                      </span>{" "}
-                      ETH
-                    </p>
-                    <p className="text-sm text-gray-600">1mo ago</p>
-                    <p className="text-sm text-green-500">Online now</p>
+                  <div className="justify-start">
+                    <div>
+                      <p className="font-semibold text-textColor">
+                        {userArray[index]}
+                      </p>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <p className="text-textColor font-semibold">
+                        <span className="font-bold text-textStrong">
+                          0.{element + 1}
+                        </span>{" "}
+                        ETH
+                      </p>
+                      <p className="text-sm text-gray-600">1mo ago</p>
+                      <p className="text-sm text-green-500">Online now</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         ))}
